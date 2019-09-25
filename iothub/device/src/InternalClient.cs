@@ -337,7 +337,7 @@ namespace Microsoft.Azure.Devices.Client
         {
             try
             {
-                return await ReceiveAsync(timeout).ConfigureAwait(false);
+                return await InnerHandler.ReceiveAsync(timeout).ConfigureAwait(false);
             }
             catch (IotHubCommunicationException ex) when (ex.InnerException is OperationCanceledException)
             {
